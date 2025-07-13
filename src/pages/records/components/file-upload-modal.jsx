@@ -36,7 +36,7 @@ const FileUploadModal = ({
         <div className="group">
           <label
             htmlFor="fileInputDragDrop"
-            className="cursor-pointer font-medium text-blue-700 group-focus-within:underline dark:text-blue-600"
+            className="cursor-pointer font-medium text-blue-700 dark:text-blue-400 group-focus-within:underline"
           >
             <input
               id="fileInputDragDrop"
@@ -49,19 +49,27 @@ const FileUploadModal = ({
           </label>
           or drag and drop here
         </div>
-        <small id="validFileFormats">PNG, PDF, JPEG - Max 5MB</small>
+        <small id="validFileFormats" className="text-slate-500 dark:text-slate-400">
+          PNG, PDF, JPEG - Max 5MB
+        </small>
       </div>
+
       {uploading && (
         <IconProgress
           size={15}
-          className="mr-3 mt-3 h-7 w-5 animate-spin text-white"
+          className="mr-3 mt-3 h-7 w-5 animate-spin text-slate-700 dark:text-slate-300"
         />
       )}
 
       {uploadSuccess && (
-        <p className="mt-2 text-green-600">Upload successful!</p>
+        <p className="mt-2 text-green-600 dark:text-green-400">Upload successful!</p>
       )}
-      <span className="text-md text-left text-white">{filename}</span>
+
+      {filename && (
+        <span className="text-md mt-1 block text-left text-slate-800 dark:text-white">
+          {filename}
+        </span>
+      )}
     </Modal>
   );
 };
